@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f3eb">
+  <meta name="description" content="A little love letter for Imane.">
+  <title>For Imane — A New Chapter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#f8f3eb; --paper:#fffdf8; --rose:#ad7475; --rose-dark:#925f63;
+      --dust:#d9b9ad; --gold:#b39470; --ink:#55443d; --muted:#8b786d;
+      --line:#e8dace;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:24px; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:Inter, sans-serif; font-weight:300; }
+    body::selection { background:#ead3cc; }
+    a { color:inherit; }
+    .serif { font-family:"Cormorant Garamond", Georgia, serif; }
+    .script { font-family:"Great Vibes", cursive; }
+    .eyebrow { font-size:.65rem; letter-spacing:.34em; text-transform:uppercase; color:#a88778; }
+    .hero {
+      min-height:94vh; display:grid; place-items:center; text-align:center; padding:100px 24px 120px;
+      position:relative; overflow:hidden;
+      background:radial-gradient(ellipse at 50% 28%,rgba(226,201,187,.55),transparent 58%),
+                 linear-gradient(180deg,#f2e9de 0%,#f8f3eb 100%);
+    }
+    .hero:before,.hero:after { content:""; position:absolute; width:300px; height:300px; border:1px solid rgba(181,144,115,.18); border-radius:50%; pointer-events:none; }
+    .hero:before { top:-190px; left:-130px; }
+    .hero:after { bottom:-220px; right:-100px; width:420px; height:420px; }
+    .hero-inner { max-width:780px; position:relative; z-index:1; animation:heroRise 1.4s ease both; }
+    .ornament { color:var(--gold); font-size:1.45rem; letter-spacing:.4em; margin-bottom:28px; animation:softGlow 4s ease-in-out infinite; }
+    h1 { font-size:clamp(6rem,18vw,11rem); font-weight:400; line-height:.9; color:var(--rose); margin:18px 0 26px; }
+    .hero h2 { font-size:clamp(2rem,5vw,3.7rem); line-height:1.08; font-weight:400; margin:0; }
+    .hero h2 em { color:var(--rose); }
+    .hero-copy { max-width:510px; margin:28px auto 0; color:var(--muted); line-height:2; font-size:.91rem; }
+    .hairline { width:75px; height:1px; background:#c7a88f; margin:28px auto; }
+    .pill-link,.note-button {
+      display:inline-flex; align-items:center; justify-content:center; gap:14px; text-decoration:none;
+      border:1px solid #c9ab95; border-radius:99px; padding:15px 25px; margin-top:38px;
+      font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:#927363;
+      transition:all .35s ease; background:transparent; cursor:pointer;
+    }
+    .pill-link:hover { background:#eadbd2; transform:translateY(-3px); }
+    section { position:relative; }
+    .intro { max-width:760px; margin:auto; padding:115px 24px 70px; text-align:center; }
+    .intro h2,.section-heading { font-size:clamp(2.8rem,6vw,4.2rem); line-height:1.02; font-weight:400; margin:22px 0; }
+    .intro h2 em,.section-heading em { color:var(--rose); }
+    .intro p,.body-copy { color:var(--muted); font-size:.91rem; line-height:2.05; }
+    .divider { display:flex; align-items:center; justify-content:center; gap:16px; margin:48px auto; color:var(--rose); font-size:1.5rem; }
+    .divider:before,.divider:after { content:""; width:62px; height:1px; background:#d8c4ad; }
+    .timeline-wrap { max-width:1040px; margin:auto; padding:40px 24px 115px; }
+    .section-title { text-align:center; margin-bottom:78px; }
+    .section-title .script { font-size:2rem; color:var(--rose); margin-top:8px; }
+    .timeline { position:relative; }
+    .timeline:before { content:""; position:absolute; top:0; bottom:0; left:50%; width:1px; transform:translateX(-50%); background:linear-gradient(#d6bda9,#b98d82,#d6bda9); }
+    .moment { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin:0 0 76px; position:relative; }
+    .moment:nth-child(even) .paper { grid-column:2; grid-row:1; }
+    .moment:nth-child(even) .aside-word { grid-column:1; grid-row:1; }
+    .dot { position:absolute; left:50%; top:22px; transform:translateX(-50%); width:22px; height:22px; border-radius:50%; background:var(--cream); border:1px solid #bc9480; display:grid; place-items:center; z-index:2; color:var(--rose); font-size:.6rem; }
+    .paper { background:var(--paper); border:1px solid #e9dfd2; padding:34px 38px; box-shadow:0 12px 45px rgba(100,70,55,.055); position:relative; }
+    .paper:after { content:""; position:absolute; inset:8px; border:1px solid rgba(213,190,170,.22); pointer-events:none; }
+    .paper-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:25px; }
+    .paper-top span:first-child { font-size:.58rem; letter-spacing:.25em; color:#b58a77; }
+    .number { font:2rem "Cormorant Garamond",serif; color:#d1b7a3; }
+    .moment-icon { font-size:1.7rem; color:#b77d79; margin-bottom:10px; }
+    .paper h3 { font:400 clamp(2rem,4vw,2.65rem)/1.05 "Cormorant Garamond",serif; margin:0 0 5px; }
+    .paper .subtitle { font:1.65rem "Great Vibes",cursive; color:#b27c77; margin:0 0 23px; }
+    .paper .body-copy { white-space:pre-line; font-size:.83rem; line-height:1.95; margin:0; }
+    blockquote { border-left:2px solid #d9b9a8; padding-left:15px; margin:25px 0 0; color:#a16f6d; font:italic 1.35rem/1.35 "Cormorant Garamond",serif; }
+    .aside-word { color:#d2b9a6; opacity:.8; font:2.7rem "Great Vibes",cursive; text-align:center; }
+    .letter-section { background:#f0e7dc; padding:105px 24px 115px; overflow:hidden; }
+    .letter-container { max-width:790px; margin:auto; }
+    .letter-heading { text-align:center; margin-bottom:48px; }
+    .letter-heading .script { font-size:2rem; color:var(--rose); }
+    .envelope-stage { min-height:430px; display:grid; place-items:center; perspective:1200px; padding:20px 0 45px; }
+    .envelope-wrap { width:min(100%,560px); height:340px; position:relative; cursor:pointer; outline:none; }
+    .envelope-wrap:focus-visible { outline:2px solid var(--rose); outline-offset:10px; border-radius:8px; }
+    .envelope-shadow { position:absolute; inset:35px 20px 0; background:#9e7764; opacity:.16; filter:blur(24px); border-radius:12px; transform:translateY(16px); transition:transform .8s ease,opacity .8s ease; }
+    .envelope { position:absolute; inset:35px 10px 0; border-radius:7px; background:linear-gradient(145deg,#e9d8c6,#d9c1aa); box-shadow:0 22px 55px rgba(83,57,43,.16); }
+    .envelope-back { position:absolute; inset:0; background:linear-gradient(145deg,#eadbca,#d9c3ae); border-radius:7px; }
+    .envelope-letter-preview { position:absolute; z-index:2; left:7%; width:86%; height:88%; bottom:5px; background:#fffdf8; border:1px solid #e7d9c9; padding:25px 22px; text-align:center; transition:transform 1.15s cubic-bezier(.2,.75,.2,1),bottom 1.15s cubic-bezier(.2,.75,.2,1); }
+    .envelope-letter-preview .preview-script { font:2.2rem "Great Vibes",cursive; color:var(--rose); }
+    .envelope-letter-preview .preview-line { height:1px; width:55%; background:#e5d4c4; margin:15px auto; }
+    .envelope-letter-preview p { color:#a48c7b; font:italic 1rem "Cormorant Garamond",serif; }
+    .envelope-front { position:absolute; z-index:4; inset:0; border-radius:0 0 7px 7px; background:linear-gradient(155deg,#e8d5c0,#d5b99f); clip-path:polygon(0 0,50% 57%,100% 0,100% 100%,0 100%); }
+    .envelope-side { position:absolute; z-index:3; inset:0; background:linear-gradient(135deg,#f0dfcc,#dfc8b1); clip-path:polygon(0 0,50% 58%,0 100%); border-radius:7px; }
+    .envelope-side.right { clip-path:polygon(100% 0,50% 58%,100% 100%); }
+    .envelope-flap { position:absolute; z-index:5; top:0; left:0; width:100%; height:62%; background:linear-gradient(160deg,#f1e2d2,#ddc5ae); clip-path:polygon(0 0,100% 0,50% 100%); transform-origin:top center; transform:rotateX(0deg); transition:transform .9s cubic-bezier(.2,.7,.2,1); backface-visibility:visible; }
+    .wax-seal { position:absolute; z-index:7; left:50%; top:52%; transform:translate(-50%,-50%); width:57px; height:57px; border-radius:50%; display:grid; place-items:center; color:#f9e9dc; font-size:1.55rem; background:radial-gradient(circle at 35% 30%,#c58b83,#985e61 75%); box-shadow:0 5px 13px rgba(91,53,49,.22),inset 0 1px 3px rgba(255,255,255,.35); transition:opacity .35s ease,transform .6s ease; }
+    .open-hint { position:absolute; z-index:8; left:0; right:0; bottom:-48px; text-align:center; color:#9c7b69; font-size:.62rem; letter-spacing:.23em; text-transform:uppercase; transition:opacity .4s ease; }
+    .envelope-wrap.open .envelope-flap { transform:rotateX(180deg); z-index:1; }
+    .envelope-wrap.open .wax-seal { opacity:0; transform:translate(-50%,-50%) scale(.55); }
+    .envelope-wrap.open .envelope-letter-preview { transform:translateY(-205px); bottom:0; }
+    .envelope-wrap.open .envelope-shadow { transform:translateY(25px) scale(1.04); opacity:.22; }
+    .envelope-wrap.open .open-hint { opacity:0; }
+    .letter { display:none; background:var(--paper); padding:clamp(30px,7vw,70px); border:1px solid #e6d7c8; box-shadow:0 20px 60px rgba(83,57,43,.08); position:relative; opacity:0; transform:translateY(25px); }
+    .letter.show { display:block; animation:letterReveal .95s .25s ease forwards; }
+    .letter:before { content:"❀"; position:absolute; right:25px; top:20px; color:#d4bda8; font-size:1.5rem; }
+    .letter .salutation { font:2.7rem "Great Vibes",cursive; color:#ab7772; margin:0 0 24px; }
+    .letter p:not(.salutation):not(.signoff) { font:400 1.2rem/1.85 "Cormorant Garamond",serif; color:#66534a; margin:0 0 18px; }
+    .signoff { font:2.35rem "Great Vibes",cursive; color:#ad7774; margin:38px 0 0; }
+    .seal { width:54px; height:54px; border-radius:50%; background:#a96f70; color:#f9ede0; display:grid; place-items:center; font-size:1.5rem; margin:32px auto 0; box-shadow:0 5px 18px #a96f7030; }
+    @keyframes letterReveal { to { opacity:1; transform:translateY(0); } }
+    .notes { max-width:760px; margin:auto; text-align:center; padding:115px 24px 125px; }
+    .notes .script { color:var(--rose); font-size:2rem; }
+    .sparkle { font-size:2.8rem; color:#c49b87; margin:38px 0; animation:softGlow 3.5s infinite; }
+    .note-button { background:var(--rose); border-color:var(--rose); color:#fff9f1; padding:17px 32px; margin-top:10px; }
+    .note-button:hover { background:var(--rose-dark); border-color:var(--rose-dark); transform:translateY(-3px); box-shadow:0 12px 25px #925f6325; }
+    .note-card { display:none; max-width:570px; margin:38px auto 0; padding:38px 28px; background:var(--paper); border:1px solid #e5d5c6; box-shadow:0 12px 45px rgba(100,70,55,.055); }
+    .note-card.show { display:block; animation:noteIn .6s ease both; }
+    .note-card .note-text { font:italic 2rem/1.35 "Cormorant Garamond",serif; color:#765951; }
+    .note-card .script { font-size:1.8rem; margin:18px 0 0; }
+    .another { border:0; border-bottom:1px solid #cdb3a2; padding:0 0 7px; background:none; color:#a17b6d; margin-top:25px; cursor:pointer; text-transform:uppercase; letter-spacing:.2em; font-size:.6rem; }
+    .closing { text-align:center; padding:115px 24px 95px; background:radial-gradient(ellipse at 50% 25%,rgba(230,207,193,.45),transparent 65%),linear-gradient(#f5eee4,#f8f3eb); }
+    .closing h2 { font:400 clamp(3.4rem,8vw,6rem)/.98 "Cormorant Garamond",serif; margin:26px 0; }
+    .closing h2 em { color:var(--rose); }
+    .closing .script.big { font-size:4.3rem; color:var(--rose); margin-top:50px; }
+    .closing .eyebrow { margin-top:10px; font-size:.58rem; }
+    footer { padding:20px; text-align:center; font-size:.55rem; letter-spacing:.28em; text-transform:uppercase; color:#b19a87; }
+    .petals { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:10; }
+    .petal { position:absolute; top:-30px; border-radius:80% 10% 80% 10%; background:linear-gradient(135deg,#d9a9a2,#ebd4cb); opacity:.33; animation:fall linear infinite; }
+    .reveal { opacity:0; transform:translateY(26px); transition:opacity .9s ease,transform .9s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    @keyframes fall { 0%{transform:translate3d(0,-8vh,0) rotate(0)} 50%{transform:translate3d(35px,50vh,0) rotate(180deg)} 100%{transform:translate3d(-25px,110vh,0) rotate(360deg)} }
+    @keyframes heroRise { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes softGlow { 0%,100%{opacity:.65} 50%{opacity:1} }
+    @keyframes noteIn { from{opacity:0;transform:translateY(12px) scale(.98)} to{opacity:1;transform:translateY(0) scale(1)} }
+    @media(max-width:700px) {
+      .timeline:before { left:10px; }
+      .moment { display:block; padding-left:35px; margin-bottom:48px; }
+      .dot { left:10px; top:18px; }
+      .aside-word { display:none; }
+      .paper { padding:27px 24px; }
+      .moment:nth-child(even) .paper { grid-column:auto; }
+      .letter p:not(.salutation):not(.signoff) { font-size:1.13rem; }
+      .hero { min-height:88vh; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; }
+      .reveal { opacity:1; transform:none; }\n      .envelope-flap,.envelope-letter-preview,.wax-seal { transition-duration:.01ms!important; }\n      .letter.show { animation:none; opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="ornament">✧ &nbsp; ♡ &nbsp; ✧</div>
+      <p class="eyebrow">A little something from my heart</p>
+      <h1 class="script">Imane</h1>
+      <div class="hairline"></div>
+      <h2 class="serif">Some stories deserve<br><em>another beautiful beginning.</em></h2>
+      <p class="hero-copy">Not a perfect love story. Not a promise that life will always be easy. Just a story worth writing with a little more understanding, tenderness, and care.</p>
+      <a class="pill-link" href="#our-story">Discover our story <span>↓</span></a>
+    </div>
+  </header>
+
+  <section class="intro reveal" id="our-story">
+    <p class="eyebrow">A story written by two hearts</p>
+    <h2 class="serif">Before tomorrow,<br><em>let's remember yesterday.</em></h2>
+    <p>Every story has its own rhythm. Ours has had unexpected beginnings, difficult pauses, unanswered questions, and moments that brought us back to each other.<br><br>I don't want to erase any of it. Because every chapter has something to teach us, and every step has brought us to the possibility of something better.</p>
+    <div class="divider">❧</div>
+  </section>
+
+  <section class="timeline-wrap">
+    <div class="section-title reveal">
+      <p class="eyebrow">The chapters of us</p>
+      <h2 class="section-heading serif">Our little history</h2>
+      <p class="script">Every chapter matters.</p>
+    </div>
+    <div class="timeline">
+      <article class="moment reveal">
+        <span class="dot">✦</span>
+        <div class="paper">
+          <div class="paper-top"><span>THE BEGINNING</span><span class="number">01</span></div>
+          <div class="moment-icon">✉</div>
+          <h3>The First Spark</h3>
+          <p class="subtitle">Where a little message became a beginning</p>
+          <p class="body-copy">It started with a simple message. A little conversation, a few words exchanged through a screen, and a connection neither of us could have fully understood at the time.
+
+We didn't know where those first conversations would lead. We only knew that something had begun.</p>
+          <blockquote>“Sometimes, the most beautiful stories begin with the smallest hello.”</blockquote>
+        </div>
+        <div class="aside-word">A hello...</div>
+      </article>
+
+      <article class="moment reveal">
+        <span class="dot">✦</span>
+        <div class="paper">
+          <div class="paper-top"><span>WHAT WE LEARNED</span><span class="number">02</span></div>
+          <div class="moment-icon">♡</div>
+          <h3>The Distance &amp; The Test</h3>
+          <p class="subtitle">The chapters that taught us something</p>
+          <p class="body-copy">Our story wasn't always easy. There were moments when we misunderstood each other, when listening became difficult, and when silence felt easier than words.
+
+We stepped away, and somehow, even in the distance, we kept finding ourselves reaching back.
+
+Those moments were not perfect, but they taught us that love needs more than feelings. It needs patience, understanding, and the willingness to grow.</p>
+          <blockquote>“Not every difficult chapter is the end of a beautiful story.”</blockquote>
+        </div>
+        <div class="aside-word">A lesson...</div>
+      </article>
+
+      <article class="moment reveal">
+        <span class="dot">✦</span>
+        <div class="paper">
+          <div class="paper-top"><span>A DIFFERENT UNDERSTANDING</span><span class="number">03</span></div>
+          <div class="moment-icon">❀</div>
+          <h3>The Realization</h3>
+          <p class="subtitle">Finding our way back with open hearts</p>
+          <p class="body-copy">Somewhere between the distance and the silence, I realized that what matters is not simply being together, but knowing how to be together.
+
+To listen without rushing to answer. To understand before judging. To respect each other's feelings, even when we disagree.
+
+We found our way back to a conversation, this time with a clearer understanding of what we both need.</p>
+          <blockquote>“Coming back means more when we come back willing to grow.”</blockquote>
+        </div>
+        <div class="aside-word">An understanding...</div>
+      </article>
+
+      <article class="moment reveal">
+        <span class="dot">✦</span>
+        <div class="paper">
+          <div class="paper-top"><span>NOVEMBER 16, 2026</span><span class="number">04</span></div>
+          <div class="moment-icon">∞</div>
+          <h3>A Fresh Chapter</h3>
+          <p class="subtitle">Today, we begin again</p>
+          <p class="body-copy">Today is not about pretending that nothing ever happened. It is about accepting our story, learning from it, and choosing to write what comes next differently.
+
+No impossible promises. No perfect expectations. Just two hearts willing to communicate, to listen, to respect one another, and to build something meaningful.
+
+This time, let's make our story a place where both of us feel heard, valued, and loved.</p>
+          <blockquote>“A new beginning, not because the past disappeared, but because we learned from it.”</blockquote>
+        </div>
+        <div class="aside-word">A beginning...</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="letter-section" id="love-letter">
+    <div class="letter-container reveal">
+      <div class="letter-heading">
+        <p class="eyebrow">Written with love</p>
+        <h2 class="section-heading serif">Letter to Imane</h2>
+        <p class="script">A few words I want you to keep.</p>
+        <p class="body-copy">Some words deserve to be opened slowly.</p>
+      </div>
+
+      <div class="envelope-stage">
+        <div class="envelope-wrap" id="envelope" role="button" tabindex="0" aria-label="Open the letter for Imane" aria-expanded="false">
+          <div class="envelope-shadow"></div>
+          <div class="envelope">
+            <div class="envelope-back"></div>
+            <div class="envelope-letter-preview" aria-hidden="true">
+              <div class="preview-script">For Imane</div>
+              <div class="preview-line"></div>
+              <p>A letter from my heart</p>
+              <div style="color:#c39b83;font-size:1.2rem;margin-top:10px">♡</div>
+            </div>
+            <div class="envelope-side"></div>
+            <div class="envelope-side right"></div>
+            <div class="envelope-front"></div>
+            <div class="envelope-flap"></div>
+            <div class="wax-seal">♡</div>
+          </div>
+          <div class="open-hint">Tap the envelope to open your letter&nbsp; ↓</div>
+        </div>
+      </div>
+
+      <div class="letter" id="letterContent" aria-hidden="true">
+        <p class="salutation">My dear Imane,</p>
+        <p>I don't know what the future has written for us, but I know what I would like to build with you.</p>
+        <p>I want us to learn how to listen to each other, not only when everything is beautiful, but especially when things become difficult. I want your voice to have a place beside mine, and your feelings to be treated with the care they deserve.</p>
+        <p>I want us to disagree without hurting each other, to speak honestly without fear, and to understand that being right is never more important than treating each other with respect.</p>
+        <p>I cannot promise that we will never have difficult days. I cannot promise to always find the perfect words. But I can promise to keep learning, to be more attentive, and to never take what we have for granted.</p>
+        <p>I hope we create a life filled with little moments: spontaneous laughter, peaceful evenings, shared dreams, silly conversations, and the comfort of knowing that we are on the same side.</p>
+        <p>I don't want us to simply return to what we were. I want us to become something better than before. Something honest. Something peaceful. Something we can both be proud of.</p>
+        <p>And if life gives us the chance, I hope one day we will look back at these pages and smile, knowing that this was the moment we chose to write a different story.</p>
+        <p class="signoff">With all my heart,<br>Yours, always in hope.</p>
+        <div class="seal">♡</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="notes reveal">
+    <p class="eyebrow">A little surprise</p>
+    <h2 class="section-heading serif">A note for you</h2>
+    <p class="script">Because you deserve little reminders.</p>
+    <div class="sparkle">✧</div>
+    <p class="body-copy">There are things worth saying more than once. Click below, and let me leave you a little reminder whenever you need one.</p>
+    <button class="note-button" id="noteButton">A note for you ♡</button>
+    <div class="note-card" id="noteCard" aria-live="polite">
+      <div style="font-size:1.8rem;color:#b77e7a">❀</div>
+      <p class="note-text" id="noteText"></p>
+      <p class="script">A little thought for you.</p>
+      <button class="another" id="anotherButton">Another little note ↗</button>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="reveal">
+      <div style="font-size:2rem;color:#b58c78">❀</div>
+      <p class="eyebrow">And now...</p>
+      <h2>Here's to<br><em>what comes next.</em></h2>
+      <p class="body-copy" style="max-width:440px;margin:0 auto">One day at a time. One conversation at a time. One beautiful memory after another.<br><br>No need to rush the story. Let's simply make the next chapter worth remembering.</p>
+      <p class="script big">Imane &amp; Me</p>
+      <p class="eyebrow">A new chapter · A shared hope</p>
+      <div style="margin-top:48px;color:#b9907c;font-size:1.2rem">♡ &nbsp; ✧ &nbsp; ♡</div>
+    </div>
+  </section>
+  <footer>Made with love, just for you.</footer>
+
+  <script>
+    // Floating rose petals
+    const petalLayer = document.getElementById("petals");
+    for (let i = 0; i < 17; i++) {
+      const petal = document.createElement("span");
+      const size = 8 + (i % 5) * 3;
+      petal.className = "petal";
+      petal.style.left = ((i * 37 + 11) % 100) + "%";
+      petal.style.width = size + "px";
+      petal.style.height = (size * 1.5) + "px";
+      petal.style.animationDelay = (-(i % 9) * 2.3) + "s";
+      petal.style.animationDuration = (13 + (i % 7) * 2) + "s";
+      petalLayer.appendChild(petal);
+    }
+
+    // Reveal sections gently as they enter the viewport
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    // Open the envelope, lift the letter, then reveal the full page
+    const envelope = document.getElementById("envelope");
+    const letterContent = document.getElementById("letterContent");
+    function openLetter() {
+      if (envelope.classList.contains("open")) return;
+      envelope.classList.add("open");
+      envelope.setAttribute("aria-expanded", "true");
+      window.setTimeout(() => {
+        letterContent.classList.add("show");
+        letterContent.setAttribute("aria-hidden", "false");
+        window.setTimeout(() => {
+          letterContent.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 250);
+      }, 850);
+    }
+    envelope.addEventListener("click", openLetter);
+    envelope.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLetter();
+      }
+    });
+
+    // Personal notes — never repeats the immediately previous note
+    const notes = [
+      "You deserve to be heard, not just listened to.",
+      "I hope I become someone whose presence brings you peace.",
+      "May we never stop choosing kindness, even on difficult days.",
+      "I want to discover a thousand little reasons to smile with you.",
+      "Your feelings matter. Your voice matters. You matter.",
+      "Let's build something beautiful, one honest conversation at a time.",
+      "I don't need a perfect story. I want a real one, with you.",
+      "May our future be softer than our hardest days."
+    ];
+    let previousNote = -1;
+    function showNote() {
+      let next;
+      do { next = Math.floor(Math.random() * notes.length); }
+      while (notes.length > 1 && next === previousNote);
+      previousNote = next;
+      const card = document.getElementById("noteCard");
+      const text = document.getElementById("noteText");
+      card.classList.remove("show");
+      void card.offsetWidth;
+      text.textContent = "“" + notes[next] + "”";
+      card.classList.add("show");
+    }
+    document.getElementById("noteButton").addEventListener("click", showNote);
+    document.getElementById("anotherButton").addEventListener("click", showNote);
+  </script>
+</body>
+</html>
